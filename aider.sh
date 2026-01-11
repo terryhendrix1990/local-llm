@@ -41,4 +41,4 @@ docker run -it \
   --user $(id -u):$(id -g) \
   -e OLLAMA_API_BASE=http://host.docker.internal:11434 \
   --volume "$(pwd)":/app \
-  paulgauthier/aider-full --model ollama/qwen2.5-coder:14b "$@"
+  paulgauthier/aider-full "$@"

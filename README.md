@@ -1,6 +1,9 @@
 # Local LLM
 
-This project sets up and runs a local Large Language Model (LLM) using Ollama. It also provides a script to install and run Aider, a tool that interacts with the LLM for various tasks.
+This project sets up and runs a local Large Language Model (LLM) using Ollama. 
+It also provides a script to install and run Aider from isolated docker container.
+Aider is a tool that interacts with the LLM for various tasks, 
+and may modify the file system, perform git operations, etc.
 
 ## Install dependencies on MacOS
 
@@ -18,7 +21,7 @@ This project sets up and runs a local Large Language Model (LLM) using Ollama. I
 
 3. **Download a coding model:**
 
-   For a smaller model:
+   Open a new terminal tab. For a smaller model:
 
    ```sh
    ollama pull qwen2.5-coder:14b
@@ -61,7 +64,7 @@ This project sets up and runs a local Large Language Model (LLM) using Ollama. I
    After installation, you can run Aider using the command:
 
    ```sh
-   aider
+   aider --model ollama/qwen2.5-coder:14b 
    ```
 
 ## References

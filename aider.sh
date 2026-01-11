@@ -4,13 +4,20 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo "Aider running with directory ${SCRIPT_DIR}"
 
+# Check if OLLAMA_API_BASE is set
+if [ -z "$OLLAMA_API_BASE" ]; then
+    echo "Defaulting to http://host.docker.internal:11434 for ollama"
+    echo "Set environment variable OLLAMA_API_BASE to a different host to override"
+    OLLAMA_API_BASE="http://host.docker.internal:11434"
+fi
+
 # -----------------------------
 # Check if Ollama is running
 # -----------------------------
 OLLAMA_PID=$(ps aux | grep '[o]llama serve' | awk '{print $2}')
 OLLAMA_STARTED=0
 
-if [ -z "$OLLAMA_PID" ]; then
+if [[ -z "$OLLAMA_PID" && "$OLLAMA_API_BASE" == "http://host.docker.internal:11434" ]]; then
     echo "Ollama not running. Starting Ollama..."
     mkdir -p "${SCRIPT_DIR}/.aider-logs"
     ollama serve > "${SCRIPT_DIR}/.aider-logs/access.log" 2> "${SCRIPT_DIR}/.aider-logs/application.log" &
@@ -39,6 +46,6 @@ trap cleanup EXIT
 # -----------------------------
 docker run --rm -it \
   --user $(id -u):$(id -g) \
-  -e OLLAMA_API_BASE=http://host.docker.internal:11434 \
+  -e "OLLAMA_API_BASE=${OLLAMA_API_BASE}" \
   --volume "$(pwd)":/app \
   paulgauthier/aider-full "$@"

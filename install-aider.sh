@@ -7,12 +7,11 @@ mkdir -p "$HOME/bin"
 # 2️⃣ Installation path
 SCRIPT="$HOME/bin/aider"
 
-if [[ ! -f $SCRIPT ]]; then
-    # Copy aider script
-    echo "Installing $(dirname "$0")/aider.sh to $SCRIPT"
-    sudo cp "$(dirname "$0")/aider.sh" "$SCRIPT"
-    chmod +x "$SCRIPT"
-fi
+# Copy aider script
+echo "Installing $(dirname "$0")/aider.sh to $SCRIPT"
+sudo cp "$(dirname "$0")/aider.sh" "$SCRIPT"
+chmod +x "$SCRIPT"
+echo "Installed aider $SCRIPT. You can run it with the command 'aider'."
 
 # 3️⃣ Check which profiles exist
 PROFILE_PATHS=()

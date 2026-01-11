@@ -13,7 +13,7 @@ OLLAMA_STARTED=0
 if [ -z "$OLLAMA_PID" ]; then
     echo "Ollama not running. Starting Ollama..."
     mkdir -p "${SCRIPT_DIR}/.aider-logs"
-    ollama serve > "${SCRIPT_DIR}/.aider-logs/out.log" &
+    ollama serve > "${SCRIPT_DIR}/.aider-logs/access.log" 2> "${SCRIPT_DIR}/.aider-logs/application.log" &
     OLLAMA_PID=$!
     OLLAMA_STARTED=1
     echo "Ollama started with PID $OLLAMA_PID"

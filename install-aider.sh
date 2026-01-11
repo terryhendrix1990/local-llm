@@ -46,8 +46,9 @@ fi
 if ! grep -q 'export PATH=.*$HOME/bin' "$PROFILE"; then
     echo 'export PATH="$PATH:$HOME/bin"' >> "$PROFILE"
     echo "Added ~/bin to PATH in $PROFILE"
+    echo "Installation complete. Restart your terminal or run 'source $PROFILE'."
 else
     echo "~/bin is already in PATH in $PROFILE"
+    echo "Installation complete."
 fi
 
-echo "Installation complete. Restart your terminal or run 'source $PROFILE'."

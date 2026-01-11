@@ -70,3 +70,6 @@ and may modify the file system, perform git operations, etc.
 ## References
 
 - [Run aider with docker](https://aider.chat/docs/install/docker.html)
+- [Aider Configuration Options](https://aider.chat/docs/config/options.html)
+- [Ollama Documentation](https://ollama.com/docs)
+- [Docker Installation Guide](https://docs.docker.com/get-docker/)

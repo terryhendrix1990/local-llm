@@ -66,10 +66,17 @@ and may modify the file system, perform git operations, etc.
    ```sh
    aider --model ollama/qwen2.5-coder:14b 
    ```
+   
+   Or use an aider configuration file to set default options:
+
+   ```sh
+   aider --config path/to/your/aider_config.yaml
+   ```
 
 ## References
 
 - [Run aider with docker](https://aider.chat/docs/install/docker.html)
-- [Aider Configuration Options](https://aider.chat/docs/config/options.html)
+- [Aider Options](https://aider.chat/docs/config/options.html)
+- [Aider Config file](https://aider.chat/docs/config/aider_conf.html)
 - [Ollama Documentation](https://ollama.com/docs)
 - [Docker Installation Guide](https://docs.docker.com/get-docker/)

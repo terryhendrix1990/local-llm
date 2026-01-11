@@ -37,7 +37,7 @@ trap cleanup EXIT
 # -----------------------------
 # Run Aider in Docker
 # -----------------------------
-docker run -it \
+docker run --rm -it \
   --user $(id -u):$(id -g) \
   -e OLLAMA_API_BASE=http://host.docker.internal:11434 \
   --volume "$(pwd)":/app \

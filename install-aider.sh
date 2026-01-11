@@ -30,7 +30,7 @@ else
     # Ask user to select from existing profiles
     echo "Select which profile to update PATH:"
     for i in "${!PROFILE_PATHS[@]}"; do
-        echo "$((i+1))) ${PROFILE_NAMES[i]}"
+        printf "%s) %s\n" "$((i+1))" "${PROFILE_NAMES[i]}"
     done
     read -p "Enter number: " choice
 
@@ -38,9 +38,9 @@ else
     if [[ $choice -ge 1 && $choice -le ${#PROFILE_PATHS[@]} ]]; then
         PROFILE="${PROFILE_PATHS[$((choice-1))]}"
     else
+        echo "Invalid choice. Using default profile ~/.profile"
         PROFILE="$HOME/.profile"
         touch "$PROFILE"
-        echo "Invalid choice. Using $PROFILE"
     fi
 fi
 

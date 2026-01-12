@@ -5,13 +5,13 @@ set -e
 mkdir -p "$HOME/bin"
 
 # 2️⃣ Installation path
-SCRIPT="$HOME/bin/aider"
+SCRIPT="$HOME/bin/aider-ollama"
 
-# Copy aider script
-echo "Installing $(dirname "$0")/aider.sh to $SCRIPT"
-sudo cp "$(dirname "$0")/aider.sh" "$SCRIPT"
+# Copy aider-ollama script
+echo "Installing $(dirname "$0")/aider-ollama.sh to $SCRIPT"
+sudo cp "$(dirname "$0")/aider-ollama.sh" "$SCRIPT"
 chmod +x "$SCRIPT"
-echo "Installed aider $SCRIPT. You can run it with the command 'aider'."
+echo "Installed aider-ollama $SCRIPT. You can run it with the command 'aider-ollama'."
 
 # 3️⃣ Check which profiles exist
 PROFILE_PATHS=()

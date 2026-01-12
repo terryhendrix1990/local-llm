@@ -1,9 +1,12 @@
 # Local LLM
 
 This project sets up and runs a local Large Language Model (LLM) using Ollama. 
-It also provides a script to install and run Aider from isolated docker container.
-Aider is a tool that interacts with the LLM for various tasks, 
-and may modify the file system, perform git operations, etc.
+It provides a script to install and run Aider from isolated docker container.
+By running from the docker container, it we avoid giving Aider access to the entire hard drive.
+Its highly advisable to run Aider in this way for security and privacy reasons.
+Aider is configured to run with Ollama's local LLM server.
+
+Aider interacts with the LLM for various tasks and may modify the file system, perform git operations, etc.
 
 ## Install dependencies on MacOS
 
@@ -33,17 +36,15 @@ and may modify the file system, perform git operations, etc.
    ollama pull qwen2.5-coder:32b
    ```
 
-4. **Install Aider:**
-
-   ```sh
-   python -m pip install aider-install && aider-install
-   ```
-
 ## How to Use
 
-1. **Run the `aider.sh` script:**
+You have two options:
 
-   This script checks if Ollama is running and starts it if necessary, then runs Aider in a Docker container.
+1. **Run the `aider.sh` script from this repository:**
+
+   This script checks if Ollama is running and starts it if necessary, 
+   then runs Aider in a Docker container which is connected to Ollama server.
+   Override using `OLLAMA_API_BASE=http://<ip>:11434 aider.sh` if Ollama is running on a different host.
 
    ```sh
    ./aider.sh
@@ -57,10 +58,8 @@ and may modify the file system, perform git operations, etc.
    ./install-aider.sh
    ```
 
-   Follow the prompts to select the appropriate profile file (e.g., `.bash_profile`, `.zprofile`, or `.profile`) and add `~/bin` to your PATH if it's not already included.
-
-3. **Run Aider:**
-
+   Follow the prompts to select the appropriate profile file 
+   (e.g., `.bash_profile`, `.zprofile`, or `.profile`) and add `~/bin` to your PATH if it's not already included.
    After installation, you can run Aider using the command:
 
    ```sh
@@ -70,8 +69,23 @@ and may modify the file system, perform git operations, etc.
    Or use an aider configuration file to set default options:
 
    ```sh
-   aider --config path/to/your/aider_config.yaml
+   aider --config aider.config.yaml
    ```
+   Again, override using `OLLAME_API_BASE` environment variable if Ollama is running on a different host:
+
+   ```sh
+   OLLAMA_API_BASE='http://<ip>:11434' aider --config aider.config.yaml
+   ```
+   
+## Configuration
+
+Create an `aider.config.yaml` file to set default options for Aider.
+Example configuration:
+
+```yaml
+model: ollama/qwen2.5-coder:14b
+commit: false # or true to enable automatic git commits
+```
 
 ## References
 

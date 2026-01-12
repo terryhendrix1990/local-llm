@@ -45,7 +45,6 @@ trap cleanup EXIT
 # Run Aider in Docker
 # -----------------------------
 docker run --rm -it \
-  --user $(id -u):$(id -g) \
   -e "OLLAMA_API_BASE=${OLLAMA_API_BASE}" \
   --volume "$(pwd)":/app \
   paulgauthier/aider-full "$@"

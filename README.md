@@ -32,7 +32,7 @@ Aider interacts with the LLM for various tasks and may modify the file system, p
    Or for a larger model with better reasoning ability:
 
    ```sh
-   ollama pull qwen2.5-coder:32b
+   ollama pull qwen3-coder:30b
    ```
 
 ## How to Use
@@ -82,7 +82,7 @@ Create an `aider.config.yaml` file to set default options for Aider.
 Example configuration:
 
 ```yaml
-model: ollama/qwen2.5-coder:14b
+model: ollama/qwen3-coder:30b
 commit: false # or true to enable automatic git commits
 ```
 

@@ -18,7 +18,7 @@ OLLAMA_PID=$(ps aux | grep '[o]llama serve' | awk '{print $2}')
 OLLAMA_STARTED=0
 
 if [[ -z "$OLLAMA_PID" && "$OLLAMA_API_BASE" == "http://host.docker.internal:11434" ]]; then
-    export OLLAMA_KEEP_ALIVE=30m
+    export OLLAMA_KEEP_ALIVE=60m
     echo "Ollama not running. Starting Ollama..."
     mkdir -p "${SCRIPT_DIR}/.aider-logs"
     ollama serve > "${SCRIPT_DIR}/.aider-logs/access.log" 2> "${SCRIPT_DIR}/.aider-logs/application.log" &

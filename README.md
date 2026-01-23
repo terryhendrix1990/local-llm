@@ -2,10 +2,10 @@
 
 This project sets up and runs a local Large Language Model (LLM) using Ollama. 
 It provides a script to install and run Aider from isolated docker container.
-By running from the docker container, it we avoid giving Aider access to the entire hard drive.
-Aider is configured to run with Ollama's local LLM server.
+By running from the docker container, we avoid giving Aider access to the entire hard drive.
 
 Aider interacts with the LLM for various tasks and may modify the file system, perform git operations, etc.
+Aider is configured to run with Ollama's local LLM server, when you execute `aider-ollama`
 
 ## Install dependencies on MacOS
 

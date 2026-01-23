@@ -1,7 +1,7 @@
 # Local LLM
 
 This project sets up and runs a local Large Language Model (LLM) using Ollama. 
-It provides a script to install and run Aider from isolated docker container.
+It provides scripts to install and run Aider from isolated docker container.
 By running from the docker container, it we avoid giving Aider access to the entire hard drive.
 Aider is configured to run with Ollama's local LLM server.
 
@@ -35,11 +35,37 @@ Aider interacts with the LLM for various tasks and may modify the file system, p
    ollama pull qwen3-coder:30b
    ```
 
+## Install dependencies on Windows
+
+1. **Install `ollama`:**
+
+   Download and install Ollama from [https://ollama.com/download](https://ollama.com/download)
+
+2. **Start the Ollama server:**
+
+   ```cmd
+   ollama serve
+   ```
+
+3. **Download a coding model:**
+
+   Open a new command prompt. For a smaller model:
+
+   ```cmd
+   ollama pull qwen2.5-coder:14b
+   ```
+
+   Or for a larger model with better reasoning ability:
+
+   ```cmd
+   ollama pull qwen3-coder:30b
+   ```
+
 ## How to Use
 
 You have two options:
 
-1. **Run the `aider.sh` script from this repository:**
+1. **Run the `aider-ollama.sh` script from this repository (MacOS):**
 
    This script checks if Ollama is running and starts it if necessary, 
    then runs Aider in a Docker container which is connected to Ollama server.
@@ -49,7 +75,17 @@ You have two options:
    ./aider-ollama.sh
    ```
 
-2. **Install Aider globally:**
+2. **Run the `aider-ollama.bat` script (Windows):**
+
+   This script checks if Ollama is running and starts it if necessary, 
+   then runs Aider in a Docker container which is connected to Ollama server.
+   Override using `OLLAMA_API_BASE=http://<ip>:11434 aider.bat` if Ollama is running on a different host.
+
+   ```cmd
+   ./windows/aider-ollama.bat
+   ```
+
+3. **Install Aider globally:**
 
    Use the `install-aider.sh` script to install Aider globally on your system.
 

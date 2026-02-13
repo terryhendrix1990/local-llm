@@ -73,7 +73,7 @@ You have two options:
    Again, override using `OLLAME_API_BASE` environment variable if Ollama is running on a different host:
 
    ```sh
-   OLLAMA_API_BASE='http://<ip>:11434' aider --config aider.config.yaml
+   OLLAMA_API_BASE='http://<ip>:11434' aider-ollama --config aider.config.yaml
    ```
    
 ## Configuration
